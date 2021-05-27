@@ -17,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
     TextView tvDBS;
     TextView tvOCBC;
     TextView tvUOB;
+    boolean fDBS = false;
+    boolean fOCBC = false;
+    boolean fUOB = false;
     String bankClicked = "";
 
 
@@ -104,7 +107,13 @@ public class MainActivity extends AppCompatActivity {
             }else if(id==2){
                 int red = getResources().getColor(R.color.red);
                 int black = getResources().getColor(R.color.black);
-                tvDBS.setTextColor(red);
+                if(fDBS){
+                    fDBS=false;
+                    tvDBS.setTextColor(black);
+                }else{
+                    fDBS=true;
+                    tvDBS.setTextColor(red);
+                }
                 tvOCBC.setTextColor(black);
                 tvUOB.setTextColor(black);
             }
@@ -119,7 +128,13 @@ public class MainActivity extends AppCompatActivity {
                 int red = getResources().getColor(R.color.red);
                 int black = getResources().getColor(R.color.black);
                 tvDBS.setTextColor(black);
-                tvOCBC.setTextColor(red);
+                if(fOCBC){
+                    fOCBC=false;
+                    tvOCBC.setTextColor(black);
+                }else{
+                    fOCBC=true;
+                    tvOCBC.setTextColor(red);
+                }
                 tvUOB.setTextColor(black);
             }
         }else if(bankClicked.equalsIgnoreCase(uobe)){
@@ -134,7 +149,13 @@ public class MainActivity extends AppCompatActivity {
                 int black = getResources().getColor(R.color.black);
                 tvDBS.setTextColor(black);
                 tvOCBC.setTextColor(black);
-                tvUOB.setTextColor(red);
+                if(fUOB){
+                    fUOB=false;
+                    tvUOB.setTextColor(black);
+                }else{
+                    fUOB=true;
+                    tvUOB.setTextColor(red);
+                }
             }
         }
         return super.onContextItemSelected(item);
